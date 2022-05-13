@@ -28,15 +28,28 @@ under the License.
 	<name>SPARQL Query to Flink Program (DataSet)</name>
 	<url>http://www.univalle.edu.co</url>
 
+<!--	<properties>-->
+<!--		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>-->
+<!--		<flink.version>1.14.3</flink.version>-->
+<!--		<java.version>1.8</java.version>-->
+<!--		<scala.binary.version>2.11</scala.binary.version>-->
+<!--		<maven.compiler.source>${java.version}</maven.compiler.source>-->
+<!--		<maven.compiler.target>${java.version}</maven.compiler.target>-->
+<!--		<jena.version>3.6.0</jena.version>-->
+<!--	</properties>-->
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<flink.version>1.14.3</flink.version>
-		<java.version>1.8</java.version>
-		<scala.binary.version>2.11</scala.binary.version>
-		<maven.compiler.source>${java.version}</maven.compiler.source>
-		<maven.compiler.target>${java.version}</maven.compiler.target>
+		<target.java.version>1.8</target.java.version>
+	<scala.binary.version>2.12</scala.binary.version><!--	Se cambió de version 2.11 a 2.12-->
+		<maven.compiler.source>${target.java.version}</maven.compiler.source>
+		<maven.compiler.target>${target.java.version}</maven.compiler.target>
 		<jena.version>3.6.0</jena.version>
 	</properties>
+
+
+
 
 	<repositories>
 		<repository>
@@ -53,6 +66,29 @@ under the License.
 	</repositories>
 
 	<dependencies>
+<!--		Nuevas dependencias-->
+
+		<!-- https://mvnrepository.com/artifact/org.apache.flink/flink-streaming-java -->
+
+
+		<!-- https://mvnrepository.com/artifact/org.apache.flink/flink-table-planner -->
+		<dependency>
+			<groupId>org.apache.flink</groupId>
+			<artifactId>flink-table-planner_2.12</artifactId>
+			<version>${flink.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/org.apache.flink/flink-table-api-java-bridge -->
+		<dependency>
+			<groupId>org.apache.flink</groupId>
+			<artifactId>flink-table-api-java-bridge_2.12</artifactId>
+			<version>${flink.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+
 		<!-- Apache Flink dependencies -->
 		<!-- These dependencies are provided, because they should not be packaged into the JAR file. -->
 		<dependency>
@@ -68,7 +104,7 @@ under the License.
 			<scope>provided</scope>
 		</dependency>
 
-        <!-- https://mvnrepository.com/artifact/com.hp.hpl.jena/arq -->
+		<!-- https://mvnrepository.com/artifact/com.hp.hpl.jena/arq -->
         <dependency>
             <groupId>org.apache.jena</groupId>
             <artifactId>jena-arq</artifactId>
@@ -131,8 +167,8 @@ under the License.
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.1</version>
 				<configuration>
-					<source>${java.version}</source>
-					<target>${java.version}</target>
+					<source>${target.java.version}</source>
+					<target>${target.java.version}</target>
 				</configuration>
 			</plugin>
 

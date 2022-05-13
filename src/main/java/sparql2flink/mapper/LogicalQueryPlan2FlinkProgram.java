@@ -57,8 +57,6 @@ public class LogicalQueryPlan2FlinkProgram {
                 "\t\t\t.setParallelism(1);\n\n" +
                 "\t\tenv.execute(\"SPARQL Query to Flink Progran - DataStream API\");\n" +
 
-//                "\t\tsm2.print();\n" +
-
                 "\t}\n}";
 
         return flinkProgram;
